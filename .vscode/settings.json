@@ -15,7 +15,7 @@
     "source.fixAll.eslint": "explicit"
   },
   "editor.wordWrap": "on",
-  "editor.fontSize": 18,
+  "editor.fontSize": 16,
   "editor.lineHeight": 30,
   "editor.tabSize": 2,
   "editor.bracketPairColorization.enabled": true,
