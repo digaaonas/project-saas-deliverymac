@@ -1,6 +1,8 @@
 import { notFound } from "next/navigation";
 
-//import { getRestaurantBySlug } from "@/data/get-restaurant-by-slug";
+import { getRestaurantBySlug } from "@/data/get-restaurant-by-slug";
+
+import RestaurantHeader from "./components/header";
 
 interface RestauranteMenuPageProps {
   params: Promise<{ slug: string }>;
@@ -21,13 +23,12 @@ const RestaurantMenuPage = async ({
     return notFound();
   }
 
-  //const restaurant = getRestaurantBySlug(slug);
+  const restaurant = await getRestaurantBySlug(slug);
+  if (!restaurant) {
+    return notFound();
+  }
 
-  return (
-    <h1>
-      {slug} {consumptionMethod}
-    </h1>
-  );
+  return <RestaurantHeader restaurant={restaurant} />;
 };
 
 export default RestaurantMenuPage;
