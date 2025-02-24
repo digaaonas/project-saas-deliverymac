@@ -15,11 +15,12 @@ const ProductHeader = ({product}: ProductHeaderProps) => {
   const router = useRouter()
   const handleBackClick = () => router.back()
   return ( 
-    <>
+    <div className="w-[390px] h-[332px] flex p-2">
       <Image
         src={product.imageUrl}
         alt={product.name}
-        fill
+        width={390}
+        height={356}
         className="object-contain"
       />
       <Button
@@ -38,7 +39,7 @@ const ProductHeader = ({product}: ProductHeaderProps) => {
         >
         <ScrollTextIcon />
       </Button>
-    </>
+    </div>
    );
 }
  
