@@ -1,7 +1,9 @@
 import { notFound } from "next/navigation";
 
+import { getRestaurantByMenuCatergorie } from "@/data/get-restaurant-by-menu-categorie";
 import { getRestaurantBySlug } from "@/data/get-restaurant-by-slug";
 
+import RestaurantCategories from "./components/categories";
 import RestaurantHeader from "./components/header";
 
 interface RestauranteMenuPageProps {
@@ -28,7 +30,17 @@ const RestaurantMenuPage = async ({
     return notFound();
   }
 
-  return <RestaurantHeader restaurant={restaurant} />;
+  const restaurantMenuCategories = await getRestaurantByMenuCatergorie(slug);
+  if (!restaurantMenuCategories) {
+    return notFound();
+  }
+
+  return (
+    <div>
+      <RestaurantHeader restaurant={restaurant} />
+      <RestaurantCategories restaurant={restaurantMenuCategories}/>
+    </div>
+  );
 };
 
 export default RestaurantMenuPage;
