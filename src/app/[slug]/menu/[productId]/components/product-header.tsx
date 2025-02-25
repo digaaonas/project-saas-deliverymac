@@ -15,12 +15,11 @@ const ProductHeader = ({product}: ProductHeaderProps) => {
   const router = useRouter()
   const handleBackClick = () => router.back()
   return ( 
-    <div className="w-[390px] h-[332px] flex p-2">
+    <div className="relative min-h-[300px] w-full">
       <Image
         src={product.imageUrl}
         alt={product.name}
-        width={390}
-        height={356}
+        fill
         className="object-contain"
       />
       <Button
