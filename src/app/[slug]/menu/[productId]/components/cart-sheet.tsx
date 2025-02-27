@@ -1,31 +1,15 @@
-import { ChevronLeftIcon, ChevronRightIcon, Trash2 } from "lucide-react";
-import Image from "next/image";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 
-import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetFooter, SheetHeader, SheetTitle } from "@/components/ui/sheet";
+import { Card, CardContent } from "@/components/ui/card";
+import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet";
 import { formatCurrency } from "@/helpers/format-currency";
 
 import { CartContext } from "../../contexts/cart";
 import CartProductItem from "./cart-product-item";
-import { Card, CardContent } from "@/components/ui/card";
+import FinishOrderButton from "./finish-order-button";
 
 const CartSheet = () => {
-    const {isOpen, toggleCart, products, total} = useContext(CartContext)
-    const [quantity, setQuantity] = useState<number>(1)
-      const handleDecreaseQuantity = () => {
-        setQuantity((prev) => {
-          if (prev == 1){
-            return 1
-          }
-          return prev - 1
-        })
-      }
-      const handleIncreaseQuantity = () => {
-        
-        setQuantity((prev) => prev + 1)
-        
-        }
+  const {isOpen, toggleCart, products, total} = useContext(CartContext)
   return ( 
     <Sheet open={isOpen} onOpenChange={toggleCart}>
         <SheetContent className="w-[85%]">
@@ -46,7 +30,7 @@ const CartSheet = () => {
                   </div>
                 </CardContent>
               </Card>
-              <Button className="w-full rounded-full mb-5">Finalizar Pedido</Button>
+              <FinishOrderButton/>
             </div>
         </SheetContent>
       </Sheet>

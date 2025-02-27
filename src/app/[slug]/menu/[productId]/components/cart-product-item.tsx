@@ -36,9 +36,9 @@ const CartProductItem = ({product}: CartProductItemProps) => {
         </div>
       </div>
     </div>
-    <Button variant="outline" className="h-7 w-7 rounded-lg" onClick={() => removeProduct(product.id)}>
-      <TrashIcon/>
-    </Button>
+      <Button variant="outline" className="h-7 w-7 rounded-lg" onClick={() => removeProduct(product.id)}>
+        <TrashIcon/>
+      </Button>
    </div> 
    );
 }
