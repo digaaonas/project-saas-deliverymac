@@ -8,9 +8,10 @@ import { formatCurrency } from "@/helpers/format-currency";
 
 import { CartContext } from "../../contexts/cart";
 import CartProductItem from "./cart-product-item";
+import { Card, CardContent } from "@/components/ui/card";
 
 const CartSheet = () => {
-    const {isOpen, toggleCart, products} = useContext(CartContext)
+    const {isOpen, toggleCart, products, total} = useContext(CartContext)
     const [quantity, setQuantity] = useState<number>(1)
       const handleDecreaseQuantity = () => {
         setQuantity((prev) => {
@@ -31,10 +32,21 @@ const CartSheet = () => {
           <SheetHeader className="relative">
             <SheetTitle className="flex left-0 mb-5">Sacola</SheetTitle>
           </SheetHeader>
-            <div className="py-5">
-              {products.map(product => (
-                <CartProductItem key={product.id} product={product}/>
-              ))}
+            <div className="py-5 flex flex-col h-full">
+              <div className="flex-auto">
+                {products.map(product => (
+                  <CartProductItem key={product.id} product={product}/>
+                ))}
+              </div>
+              <Card className="mb-5">
+                <CardContent className="p-5 text-xl font-semibold">
+                  <div className="flex justify-between">
+                    <p>Total</p>
+                    <p>{formatCurrency(total)}</p>
+                  </div>
+                </CardContent>
+              </Card>
+              <Button className="w-full rounded-full mb-5">Finalizar Pedido</Button>
             </div>
         </SheetContent>
       </Sheet>
