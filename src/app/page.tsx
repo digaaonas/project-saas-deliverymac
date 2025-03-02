@@ -1,13 +1,17 @@
-import { Input } from "@/components/ui/input";
+"use client"
+
+import { useRouter } from "next/navigation";
 
 import { Button } from "../components/ui/button"
 
 const HomePage = () => {
+  const router = useRouter()
+  const handlePushFswDonalds = () => {
+    router.push("/fsw-donalds")
+  }
   return ( 
-    <div className="p-5 border border-red-500 rounded-xl">
-      <h1 className="text-red-500 p-6">Hello World</h1> 
-      <Button>FSW 7</Button>
-      <Input/>
+    <div className="flex p-10">
+      <Button variant="destructive" onClick={handlePushFswDonalds}>FSW-Donalds</Button>
     </div>
   );
 }
