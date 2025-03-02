@@ -19,7 +19,6 @@ import {
   DrawerFooter,
   DrawerHeader,
   DrawerTitle,
-  DrawerTrigger,
 } from "@/components/ui/drawer";
 import {
   Form,
@@ -92,7 +91,6 @@ const FinishOrderDialog = ({ open, onOpenChange }: FinishOrderButtonProps) => {
   };
   return (
     <Drawer open={open} onOpenChange={onOpenChange}>
-      <DrawerTrigger></DrawerTrigger>
       <DrawerContent>
         <DrawerHeader>
           <DrawerTitle>Finalizar Pedido</DrawerTitle>
